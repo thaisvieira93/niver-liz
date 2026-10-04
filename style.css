@@ -1,0 +1,767 @@
+/* =======================================
+   RESET
+======================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =======================================
+   VARIÁVEIS DO TEMA
+======================================= */
+
+:root {
+    --verde-shrek: #66783c;
+    --verde-escuro: #26351d;
+    --verde-musgo: #43552b;
+    --verde-claro: #8fa55a;
+
+    --lilas-fiona: #9b7bb5;
+    --lilas-claro: #cbb8d9;
+    --roxo-fiona: #674477;
+
+    --dourado: #d4af37;
+    --creme: #fff8e7;
+    --marrom: #5a4028;
+    --marrom-escuro: #302116;
+
+    --branco: #ffffff;
+}
+
+
+/* =======================================
+   BODY
+======================================= */
+
+body {
+    font-family: 'Lora', serif;
+
+    background:
+        linear-gradient(
+            rgba(25, 38, 18, 0.60),
+            rgba(20, 28, 15, 0.72)
+        ),
+        url("imagens/fundo.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: white;
+    text-align: center;
+
+    min-height: 100vh;
+}
+
+
+/* =======================================
+   FONTES
+======================================= */
+
+h1,
+h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+p,
+.info,
+.botao,
+footer {
+    font-family: 'Lora', serif;
+}
+
+
+/* =======================================
+   TELA DE ENTRADA
+======================================= */
+
+#entrada {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            rgba(25, 38, 18, 0.58),
+            rgba(20, 28, 15, 0.72)
+        ),
+        url("imagens/fundo.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+
+    transition: opacity 0.8s ease;
+}
+
+
+/* =======================================
+   CAIXA DA TELA DE ENTRADA
+======================================= */
+
+.entrada-conteudo {
+    width: 88%;
+    max-width: 560px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 35px 30px;
+
+    background:
+        linear-gradient(
+            rgba(48, 66, 29, 0.90),
+            rgba(67, 54, 38, 0.92)
+        );
+
+    backdrop-filter: blur(8px);
+
+    border-radius: 28px;
+
+    border: 3px solid rgba(203, 184, 217, 0.75);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.65),
+        inset 0 0 30px rgba(255, 255, 255, 0.08);
+
+    position: relative;
+}
+
+
+/* =======================================
+   DECORAÇÃO DA CAPA
+======================================= */
+
+.entrada-conteudo::before {
+    content: "👑";
+
+    display: block;
+
+    font-size: 42px;
+
+    margin-bottom: 5px;
+
+    filter: drop-shadow(
+        0 4px 4px rgba(0, 0, 0, 0.5)
+    );
+}
+
+
+/* =======================================
+   TÍTULO DA CAPA
+======================================= */
+
+.entrada-conteudo h1 {
+    color: var(--dourado);
+
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    text-shadow:
+        3px 3px 5px rgba(0, 0, 0, 0.8);
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =======================================
+   TEXTO DA CAPA
+======================================= */
+
+.entrada-conteudo p {
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    color: var(--creme);
+
+    text-shadow:
+        2px 2px 5px rgba(0, 0, 0, 0.8);
+
+    margin: 0 auto;
+}
+
+
+/* =======================================
+   BOTÃO ABRIR CONVITE
+======================================= */
+
+#abrir {
+    margin-top: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--lilas-fiona),
+            var(--roxo-fiona)
+        );
+
+    color: white;
+
+    border: 2px solid var(--lilas-claro);
+
+    border-radius: 50px;
+
+    padding: 15px 35px;
+
+    font-family: 'Lora', serif;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s ease;
+}
+
+#abrir:hover {
+    transform: scale(1.06);
+
+    background:
+        linear-gradient(
+            135deg,
+            #b497c8,
+            #765084
+        );
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =======================================
+   CONVITE
+======================================= */
+
+#site {
+    display: none;
+
+    animation: aparecer 0.9s ease;
+}
+
+
+/* =======================================
+   CABEÇALHO
+======================================= */
+
+header {
+    padding: 45px 20px 30px;
+
+    position: relative;
+}
+
+
+/* =======================================
+   FOTO DA LIZ
+======================================= */
+
+header img {
+    width: 320px;
+    max-width: 90%;
+
+    border-radius: 30px;
+
+    border: 8px solid var(--creme);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.65);
+
+    background: var(--creme);
+
+    transition: transform 0.3s ease;
+}
+
+header img:hover {
+    transform: scale(1.02);
+}
+
+
+/* =======================================
+   TÍTULO PRINCIPAL
+======================================= */
+
+header h1 {
+    margin-top: 30px;
+
+    font-size: 58px;
+
+    color: var(--dourado);
+
+    text-shadow:
+        4px 4px 10px rgba(0, 0, 0, 0.8);
+
+    letter-spacing: 2px;
+}
+
+
+/* =======================================
+   DESCRIÇÃO PRINCIPAL
+======================================= */
+
+.descricao {
+    width: 90%;
+    max-width: 720px;
+
+    margin: 30px auto;
+
+    font-size: 22px;
+
+    line-height: 1.8;
+
+    color: var(--creme);
+
+    text-shadow:
+        2px 2px 6px rgba(0, 0, 0, 0.85);
+}
+
+.descricao strong {
+    color: var(--lilas-claro);
+
+    font-weight: 700;
+
+    text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+
+/* =======================================
+   CARDS
+======================================= */
+
+.card {
+    width: 90%;
+    max-width: 720px;
+
+    margin: 40px auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 248, 231, 0.97),
+            rgba(235, 227, 210, 0.97)
+        );
+
+    color: var(--marrom-escuro);
+
+    padding: 40px;
+
+    border-radius: 28px;
+
+    border: 4px solid var(--verde-musgo);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+}
+
+
+/* =======================================
+   DETALHE DOS CARDS
+======================================= */
+
+.card::before {
+    content: "🌿";
+
+    display: block;
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+
+/* =======================================
+   TÍTULOS DOS CARDS
+======================================= */
+
+.card h2 {
+    color: var(--verde-escuro);
+
+    font-size: 34px;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =======================================
+   INFORMAÇÕES
+======================================= */
+
+.info {
+    font-size: 21px;
+
+    margin: 18px 0;
+
+    line-height: 1.5;
+
+    color: var(--marrom-escuro);
+}
+
+.info strong {
+    color: var(--verde-musgo);
+}
+
+
+/* =======================================
+   BOTÕES
+======================================= */
+
+.botao {
+    display: inline-block;
+
+    margin: 15px;
+
+    padding: 17px 32px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 7px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =======================================
+   BOTÃO MAPA
+======================================= */
+
+.maps {
+    background:
+        linear-gradient(
+            135deg,
+            var(--verde-shrek),
+            var(--verde-escuro)
+        );
+
+    border: 2px solid var(--verde-claro);
+}
+
+.maps:hover {
+    background:
+        linear-gradient(
+            135deg,
+            var(--verde-claro),
+            var(--verde-musgo)
+        );
+
+    transform: translateY(-3px);
+}
+
+
+/* =======================================
+   BOTÃO WHATSAPP
+======================================= */
+
+.whats {
+    background:
+        linear-gradient(
+            135deg,
+            #6f8f42,
+            #3e5d29
+        );
+
+    border: 2px solid #9db56b;
+}
+
+.whats:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #88a957,
+            #527534
+        );
+
+    transform: translateY(-3px);
+}
+
+
+/* =======================================
+   EFEITO DOS BOTÕES
+======================================= */
+
+.botao:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =======================================
+   RODAPÉ
+======================================= */
+
+footer {
+    padding: 55px 20px;
+
+    font-size: 22px;
+
+    line-height: 1.7;
+
+    color: var(--creme);
+
+    text-shadow:
+        2px 2px 5px rgba(0, 0, 0, 0.9);
+
+    background:
+        linear-gradient(
+            rgba(20, 30, 15, 0.55),
+            rgba(20, 30, 15, 0.75)
+        );
+}
+
+
+/* =======================================
+   ANIMAÇÃO
+======================================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =======================================
+   CELULAR
+======================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+
+    /* TELA DE ENTRADA */
+
+    #entrada {
+        padding: 15px;
+    }
+
+    .entrada-conteudo {
+        width: 92%;
+
+        max-width: 500px;
+
+        max-height: 88vh;
+
+        padding: 25px 20px;
+
+        border-radius: 22px;
+    }
+
+
+    .entrada-conteudo::before {
+        font-size: 34px;
+
+        margin-bottom: 5px;
+    }
+
+
+    .entrada-conteudo h1 {
+        font-size: 30px;
+
+        letter-spacing: 1px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .entrada-conteudo p {
+        font-size: 16px;
+
+        line-height: 1.45;
+    }
+
+
+    #abrir {
+        margin-top: 22px;
+
+        padding: 14px 28px;
+
+        font-size: 17px;
+    }
+
+
+    /* CABEÇALHO */
+
+    header {
+        padding: 30px 15px;
+    }
+
+
+    header img {
+        width: 280px;
+
+        border-width: 6px;
+    }
+
+
+    header h1 {
+        font-size: 38px;
+
+        line-height: 1.25;
+    }
+
+
+    .descricao {
+        font-size: 18px;
+
+        line-height: 1.7;
+
+        width: 92%;
+    }
+
+
+    /* CARDS */
+
+    .card {
+        width: 92%;
+
+        padding: 28px 20px;
+
+        margin: 30px auto;
+
+        border-radius: 23px;
+    }
+
+
+    .card h2 {
+        font-size: 27px;
+
+        line-height: 1.3;
+    }
+
+
+    .info {
+        font-size: 18px;
+
+        margin: 16px 0;
+    }
+
+
+    /* BOTÕES */
+
+    .botao {
+        display: block;
+
+        width: 100%;
+
+        margin: 15px auto;
+
+        padding: 16px 20px;
+
+        font-size: 18px;
+    }
+
+
+    /* RODAPÉ */
+
+    footer {
+        padding: 40px 20px;
+
+        font-size: 18px;
+    }
+}
+
+
+/* =======================================
+   CELULARES MUITO PEQUENOS
+======================================= */
+
+@media (max-width: 400px) {
+
+    .entrada-conteudo {
+        max-height: 90vh;
+
+        padding: 22px 17px;
+    }
+
+
+    .entrada-conteudo h1 {
+        font-size: 27px;
+    }
+
+
+    .entrada-conteudo p {
+        font-size: 15px;
+
+        line-height: 1.4;
+    }
+
+
+    #abrir {
+        font-size: 16px;
+
+        padding: 13px 24px;
+
+        margin-top: 18px;
+    }
+
+
+    header h1 {
+        font-size: 32px;
+    }
+
+
+    .descricao {
+        font-size: 17px;
+    }
+
+
+    .card h2 {
+        font-size: 24px;
+    }
+
+
+    .info {
+        font-size: 17px;
+    }
+
+}
